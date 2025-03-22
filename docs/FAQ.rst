@@ -26,8 +26,14 @@ this setup. You can modify it by doing the following::
 
 And edit the userid. Then::
 
-	$ bin/fsctl share/cowrie/fs.pickle
+	$ bin/fsctl src/cowrie/data/fs.pickle
         fs.pickle:/$ mv /home/phil /home/joe
+
+Alternatively, you can execute the command directly from the command line, without the need
+of accessing the `fsctl` environment::
+
+	$ bin/fsctl src/cowrie/data/fs.pickle "mv /home/phil /home/joe"
+
 
 And then restart Cowrie::
 
@@ -48,7 +54,7 @@ First add a file system entry, the `1024` here is the file size. The
 `chown` commands only takes numerical uid's, they should match
 entries in `honeyfs/etc/passwd`::
 
-	$ bin/fsctl share/cowrie/fs.pickle
+	$ bin/fsctl src/cowrie/data/fs.pickle
         fs.pickle:/$ touch /home/phil/myfile 1024
         fs.pickle:/$ chown 1000:1000 /home/phil/myfile
 
